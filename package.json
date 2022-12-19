@@ -1,0 +1,31 @@
+{
+	"name": "@marc/x-snc-mycomponent",
+	"version": "0.0.1",
+	"private": false,
+	"description": "Does what a component got to do",
+	"keywords": [
+		"ServiceNow",
+		"Now Experience UI Component",
+		"My component special power"
+	],
+	"readme": "./README.md",
+	"engines": {
+		"node": ">=8.6.0",
+		"npm": ">=5.3.0"
+	},
+	"module": "src/index.js",
+	"dependencies": {
+		"@servicenow/cli-archetype": "rome",
+		"@servicenow/cli-component-archetype": "rome",
+		"@servicenow/library-translate": "rome",
+		"@servicenow/sass-kit": "rome",
+		"@servicenow/sass-theme": "rome",
+		"@servicenow/ui-core": "rome",
+		"@servicenow/ui-renderer-snabbdom": "rome"
+	},
+	"devDependencies": {
+		"@servicenow/cli-archetype-dev": "rome",
+		"@servicenow/cli-component-archetype-dev": "rome",
+		"react-error-overlay": "^6.0.9"
+	}
+}

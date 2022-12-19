@@ -1,6 +1,5 @@
-# now-component-template
+# ServiceNow Component Related-Records
 
-Template to create a Now Experience Component
 
 ## Features
 

@@ -1,40 +1,21 @@
 import '../src/x-snc-related-records';
-import {TASK_LIST} from '../src/x-snc-related-records/sample_data';
+//import {TASK_LIST} from '../src/x-snc-related-records/sample_data';
 
 
 const el = document.createElement('DIV');
 document.body.appendChild(el);
 
-const items = [
-    { id: "received", description: "New Lead" }, 
-    { id: "investigation", description: "Under Investigation" }, 
-    { id: "review", description: "Review" }, 
-    { id: "resolved", description: "Case Resolved" }
-];
 
-console.log(items);
-let items_str1 = JSON.stringify(items);
-console.log(items_str1);
+/*
+task 0586453e1bb39114ce2b6579b04bcb63
+caller_id
+category
+service_offering
+*/
 
-items_str1 = `[{\"id\":\"1\",\"description\":\"Lead\"},{\"id\":2,\"description\":\"Investigation\"}]`
-console.log(items_str1);
-
-
-
-const items_str = "[{\"id\":1,\"description\":\"Jane\"},{\"id\":2,\"description\":\"John\"}]"
-console.log(items_str);
-const items_obj = JSON.parse(items_str);
-console.log(items_obj);
-const items_str2 = JSON.stringify(items_obj);
-console.log(items_str2);
-
-//el.innerHTML = `<x-snc-related-records items="[]"></x-snc-related-records>`;     // Passing Empty:  WORKS
-//el.innerHTML = `<x-snc-related-records items=${items}></x-snc-related-records>`;   // Passing object: Fails expected to be type array but received string.
-//el.innerHTML = `<x-snc-related-records items=${items_str1}></x-snc-related-records>`;// Passsing a string: OK
-
-
-el.innerHTML = `<x-snc-related-records items=${items_str1}></x-snc-related-records>`;// Passsing a string: OK
-
-
-
-
+el.innerHTML = `
+<x-snc-related-records
+   table="incident"
+   id="0586453e1bb39114ce2b6579b04bcb63"
+   fields="category,opened_by,service_offering">
+</x-snc-related-records>`;

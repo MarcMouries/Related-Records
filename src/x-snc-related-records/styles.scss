@@ -2,18 +2,17 @@
 
 
 .related-records {
+	position: relative;
+	display: flex;
 	border-width: 1px;
 	border-style: solid;
 	border-color: RGB($now-color--border-primary);
 	border-radius: $now-container--border-radius;
 	height: 100%;
 	width: 100%;
-	position: absolute;
-	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-
 	font-family: sans-serif;
 	min-height: 100vh;
 	background: linear-gradient(to right top, #65dfc9, #6cdbeb);
@@ -22,15 +21,15 @@
 
 .glass {
 	background: white;
-	min-height: 80vh;
-	width: 80%;
+	// min-height: 80vh;
+//	width: 80%;
 	background: linear-gradient(to right bottom,
 			rgba(255, 255, 255, 0.7),
 			rgba(255, 255, 255, 0.3));
-	border-radius: 2rem;
-	z-index: 2;
-	backdrop-filter: blur(2rem);
+	border-radius: 1rem;
 	display: flex;
+	backdrop-filter: blur(2rem);
+	z-index: 2;
 }
 
 
@@ -63,9 +62,9 @@ h3 {
 	background: linear-gradient(to left top,
 			rgba(255, 255, 255, 0.8),
 			rgba(255, 255, 255, 0.5));
-	border-radius: 1rem;
-	margin: 2rem 0rem;
-	padding: 2rem;
+	border-radius: 0.5rem;
+	margin: 0.5rem 0rem;
+	padding: 0.5rem;
 	box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
 	justify-content: space-between;
 }

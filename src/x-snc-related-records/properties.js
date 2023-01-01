@@ -1,10 +1,14 @@
-
-import {TASK_LIST} from './sample_data';
-
 export default {
-		items: {
-			required: true,
-			schema: {type: 'array'},
-			default: TASK_LIST,
-		}
+	table: {
+		default: '',
+		required: true,
+	},
+	id: {
+		default: '',
+		required: true,
+	},
+	fields: {
+		default: '',
+		required: true,
 	}
+}

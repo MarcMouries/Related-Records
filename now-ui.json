@@ -1,4 +1,5 @@
 {
+	"scopeName": "x_snc_ae_compnts",
 	"components": {
 		"x-snc-related-records": {
 			"innerComponents": [],
@@ -19,6 +20,5 @@
 				"defaultValue": "[{\"Id\":1,\"description\":\"Jane\"},{\"Id\":2,\"description\":\"John\"}]"
 			}]
 		}
-	},
-	"scopeName": "x_snc_related_rec"
+	}
 }

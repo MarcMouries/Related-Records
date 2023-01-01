@@ -1,12 +1,11 @@
 {
-	"name": "@marc/x-snc-mycomponent",
+	"name": "x-snc-related-rec",
 	"version": "0.0.1",
 	"private": false,
-	"description": "Does what a component got to do",
+	"description": "Related records component",
 	"keywords": [
-		"ServiceNow",
-		"Now Experience UI Component",
-		"My component special power"
+		"Related records",
+		"records"
 	],
 	"readme": "./README.md",
 	"engines": {
@@ -15,17 +14,18 @@
 	},
 	"module": "src/index.js",
 	"dependencies": {
-		"@servicenow/cli-archetype": "rome",
-		"@servicenow/cli-component-archetype": "rome",
-		"@servicenow/library-translate": "rome",
-		"@servicenow/sass-kit": "rome",
-		"@servicenow/sass-theme": "rome",
-		"@servicenow/ui-core": "rome",
-		"@servicenow/ui-renderer-snabbdom": "rome"
+		"@servicenow/cli-archetype": "latest",
+		"@servicenow/cli-component-archetype": "latest",
+		"@servicenow/library-translate": "latest",
+		"@servicenow/sass-kit": "latest",
+		"@servicenow/sass-theme": "latest",
+		"@servicenow/ui-core": "latest",
+		"@servicenow/ui-effect-graphql": "latest",
+		"@servicenow/ui-effect-http": "latest",
+		"@servicenow/ui-renderer-snabbdom": "latest"
 	},
 	"devDependencies": {
-		"@servicenow/cli-archetype-dev": "rome",
-		"@servicenow/cli-component-archetype-dev": "rome",
-		"react-error-overlay": "^6.0.9"
+		"@servicenow/cli-archetype-dev": "latest",
+		"@servicenow/cli-component-archetype-dev": "latest"
 	}
 }

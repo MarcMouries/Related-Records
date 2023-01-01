@@ -5,7 +5,7 @@ import view from './view';
 import properties from './properties'
 
 
-createCustomElement('x-snc-mycomponent', {
+createCustomElement('x-snc-related-records', {
 	renderer: { type: snabbdom },
 	view,
 	styles,

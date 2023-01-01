@@ -1,13 +1,13 @@
 {
 	"components": {
-		"x-snc-mycomponent": {
+		"x-snc-related-records": {
 			"innerComponents": [],
 			"uiBuilder": {
 				"associatedTypes": ["global.core", "global.landing-page"],
-				"description": "Component Template",
-				"category": "Component",
+				"category": "primitives",
+				"description": "Displays related items",
 				"icon": "document-outline",
-				"label": "Component Template"
+				"label": "AES Related Records"
 			},
 			"properties": [{
 				"description": "Array of items to display",
@@ -20,5 +20,5 @@
 			}]
 		}
 	},
-	"scopeName": "x_snc_mycomponent"
+	"scopeName": "x_snc_related_rec"
 }

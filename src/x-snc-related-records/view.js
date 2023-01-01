@@ -10,7 +10,7 @@ export default (state, { dispatch }) => {
 	const { properties } = state;
 
 	return (
-		<div className="mycomponent">
+		<div className="related-records">
 			<section className="glass">
 				<div className="cards">
 				<h1>Data provided</h1>

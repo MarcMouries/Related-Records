@@ -1,6 +1,11 @@
 # ServiceNow Component Related-Records
 
 
+renamed package.json
+	"name": "x-snc-related-rec",
+
+
+
 ## Features
 
 - shows how to pass data for sample data

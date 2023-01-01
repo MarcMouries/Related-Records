@@ -1,1 +1,1 @@
-import './x-snc-mycomponent';
+import './x-snc-related-records';

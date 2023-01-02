@@ -4,6 +4,11 @@
 renamed package.json
 	"name": "x-snc-related-rec",
 
+## TODOs
+- ideally add a list of conditions
+- add a list of displayFields and show
+    - Short description
+    - open date
 
 
 ## Features

@@ -1,3 +1,17 @@
 {
-  "translations": []
+  "translations": [
+    "Card Actions",
+    "{0} was {1}",
+    "busy",
+    "away",
+    "available",
+    "offline",
+    "selected",
+    "Link opens in new window",
+    "No results found",
+    "Search",
+    "Unknown User",
+    "User Avatar: {0}",
+    "{0} items selected"
+  ]
 }

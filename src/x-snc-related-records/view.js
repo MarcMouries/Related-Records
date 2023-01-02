@@ -1,3 +1,7 @@
+import "@servicenow/now-card";
+import "@servicenow/now-highlighted-value";
+import "@servicenow/now-label-value";
+
 export default (state, { dispatch }) => {
 	console.log("📗 View: state", state);
 	const { properties, record } = state;
@@ -8,7 +12,7 @@ export default (state, { dispatch }) => {
 		return <div>Loading...</div>;
 
 	if (!state.record)
-	 	return <div>No Record</div>;
+		return <div>No Record</div>;
 
 	if (!state.items)
 		return <div>No Related records found</div>;
@@ -16,30 +20,24 @@ export default (state, { dispatch }) => {
 	return (
 		<div>
 			{state.items.map(item =>
-				<span>
-					{state.fieldList.map(field => (
-						<p>item desc: {item[field].displayValue}</p>
-					))}
-				</span>
-			)}
+								<now-card className="card">
+									<now-card-header tagline={{ "label": "item.number", "icon": "form-fill" }} >
+									</now-card-header>
+									<now-card-divider></now-card-divider>
+									<now-label-value-tabbed
+										size="sm"
+										items={state.fieldList.map(
+											field => { 
+														return { 
+															label: item[field].label, 
+															value: item[field].displayValue 
+															}
+													})}
+									/> {/* now-label-value-tabbed */}
+								</now-card>
+							)
+			}
 		</div>
 	);
 
-	/*
-	  return (
-		  <div className="related-records">
-			  <section className="glass">
-				  <div className="cards">
-				  <h1>Data provided</h1>
-				  {
-						  properties.items.map((item, index) => (
-							  <div className="card">
-								  <span>{item.id} - {item.description}</span>
-							  </div>
-						  ))
-					  }
-				  </div>
-			  </section>
-		  </div >)
-		   */
 };

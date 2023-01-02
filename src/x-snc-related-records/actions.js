@@ -19,13 +19,15 @@ export const requestRecordData = (coeffects) => {
 	console.log("  - state  ", state);
 	console.log("  - dispatch RECORD_FETCH_REQUESTED");
 
-	console.log("  - FIELDS  ", properties.fields);
+	console.log("  - MATCHING FIELDS  ", properties.fields);
+	console.log("  - DISPLAY  FIELDS  ", properties.displayFields);
+
 	let fieldList = []
 	let fieldListString = "";
 
 	const fieldArray = properties.fields.split(",");
 	for (const field of fieldArray) {
-		fieldListString += `${field} {value displayValue} `;
+		fieldListString += `${field} {label value displayValue} `;
 		fieldList.push(field);
 	}
 	console.log("  - fieldList       : ", fieldList);
@@ -56,7 +58,7 @@ const requestRelatedRecordsData = (coeffects) => {
 
 	const fieldArray = properties.fields.split(",");
 	for (const field of fieldArray) {
-		fieldList += `${field} {value displayValue} `;
+		fieldList += `${field} {label value displayValue} `;
 	}
 	console.log("  - FIELDS  ", fieldList);
 

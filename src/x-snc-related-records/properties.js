@@ -10,5 +10,10 @@ export default {
 	fields: {
 		default: '',
 		required: true,
+	},
+	displayFields: {
+		default: '',
+		required: true,
+		schema: { type: "string" }
 	}
 }

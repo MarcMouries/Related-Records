@@ -20,22 +20,24 @@ export default (state, { dispatch }) => {
 	return (
 		<div>
 			{state.items.map(item =>
-								<now-card className="card">
-									<now-card-header tagline={{ "label": "item.number", "icon": "form-fill" }} >
-									</now-card-header>
-									<now-card-divider></now-card-divider>
-									<now-label-value-tabbed
-										size="sm"
-										items={state.fieldList.map(
-											field => { 
-														return { 
-															label: item[field].label, 
-															value: item[field].displayValue 
-															}
-													})}
-									/> {/* now-label-value-tabbed */}
-								</now-card>
-							)
+				<now-card className="card">
+					<now-card-header
+						tagline={{ "label": item["number"].value, "icon": "form-fill" }}
+						heading={{ "label": item["short_description"].value, "size": "sm", "lines": 1 }} >
+					</now-card-header>
+					<now-card-divider></now-card-divider>
+					<now-label-value-tabbed
+						size="sm"
+						items={state.fieldList.map(
+							field => {
+								return {
+									label: item[field].label,
+									value: item[field].displayValue
+								}
+							})}
+					/> {/* now-label-value-tabbed */}
+				</now-card>
+			)
 			}
 		</div>
 	);

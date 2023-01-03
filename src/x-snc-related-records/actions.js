@@ -20,57 +20,37 @@ export const requestRecordData = (coeffects) => {
 	console.log("  - dispatch RECORD_FETCH_REQUESTED");
 
 	console.log("  - MATCHING FIELDS  ", properties.fields);
-	console.log("  - DISPLAY  FIELDS  ", properties.displayFields);
 
-	let fieldList = []
-	let fieldListString = "";
+	let fieldsAsCSV = properties.fields;
+	let graphQLFieldsString = buildGraphQLFieldsString (fieldsAsCSV);
+	const fieldArray = fieldsAsCSV.split(",");
 
-	const fieldArray = properties.fields.split(",");
+	// set fieldList to present in the View
+	updateState({ fieldList: fieldArray });
+
+	dispatch(
+		customActions.RECORD_FETCH_REQUESTED,
+		{
+			encodedQuery: "sys_id=" + properties.id,
+			table: properties.table,
+			fields: graphQLFieldsString,
+		}
+	);
+}
+
+const buildGraphQLFieldsString = (fieldsAsCSV) => {
+	const fieldArray = fieldsAsCSV.split(",");
+	let graphQLFieldsString = "";
+	let fieldList = [];
 	for (const field of fieldArray) {
-		fieldListString += `${field} {label value displayValue} `;
+		graphQLFieldsString += `${field} {label value displayValue} `;
 		fieldList.push(field);
 	}
-	console.log("  - fieldList       : ", fieldList);
-	console.log("  - fieldListString : ", fieldListString);
-
-	updateState({ fieldList: fieldList });
-
-	dispatch(
-		customActions.RECORD_FETCH_REQUESTED,
-		{
-			encodedQuery: "sys_id=" + properties.id,
-			table: properties.table,
-			fields: fieldListString,
-		}
-	);
+	console.log("  => - fieldList       : ", fieldList);
+	console.log("  => - graphQLFieldsString : ", graphQLFieldsString);
+	return  graphQLFieldsString;
 }
 
-const requestRelatedRecordsData = (coeffects) => {
-	const { action, state, updateState, dispatch } = coeffects;
-	const { properties } = state;
-
-	console.log('📗 Action:  request Related Records');
-	console.log("  - state  ", state);
-	console.log("  - dispatch RECORD_FETCH_REQUESTED");
-
-	console.log("  - FIELDS  ", properties.fields);
-	let fieldList = "";
-
-	const fieldArray = properties.fields.split(",");
-	for (const field of fieldArray) {
-		fieldList += `${field} {label value displayValue} `;
-	}
-	console.log("  - FIELDS  ", fieldList);
-
-	dispatch(
-		customActions.RECORD_FETCH_REQUESTED,
-		{
-			encodedQuery: "sys_id=" + properties.id,
-			table: properties.table,
-			fields: fieldList,
-		}
-	);
-}
 
 const createRecordQuery = createGraphQLEffect(
 	glideRecordQuery,
@@ -123,6 +103,8 @@ const buildEncodedQuery = (object) => {
 
 const handleRecordFetchSuccess = ({ action, state, dispatch, updateState, }) => {
 	const { payload, meta } = action;
+	const { properties } = state;
+
 	console.log('📗 Action: Record Fetch Success');
 
 	console.log("   meta: ", meta);
@@ -139,18 +121,25 @@ const handleRecordFetchSuccess = ({ action, state, dispatch, updateState, }) => 
 	const record = payload["data"]["GlideRecord_Query"][table]["_results"][0] || {};
 	console.log("   table  : ", table);
 	console.log("   record : ", record);
+
+
+	let fieldsAsCSV = properties.displayfields;
+	let graphQLFieldsString = buildGraphQLFieldsString (fieldsAsCSV);
+
+	console.log("  - MATCHING FIELDS  ", properties.fields);
+	console.log("  - DISPLAY  FIELDS  ", properties.displayfields);
+
 	updateState({ record: record });
 
 	console.log("  - BUILD ENCODED QUERY  ");
 	let encodedQuery = buildEncodedQuery(record);
-	console.log(encodedQuery);
-
+	console.log("  		- " + encodedQuery);
 	dispatch(
 		customActions.RELATED_RECORDS_REQUESTED,
 		{
 			encodedQuery: encodedQuery,
 			table: table,
-			fields: fields,
+			fields: graphQLFieldsString,
 		}
 	);
 }

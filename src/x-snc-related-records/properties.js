@@ -11,7 +11,7 @@ export default {
 		default: '',
 		required: true,
 	},
-	displayFields: {
+	displayfields: {
 		default: '',
 		required: true,
 		schema: { type: "string" }

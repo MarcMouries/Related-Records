@@ -18,5 +18,5 @@ el.innerHTML = `
    table="incident"
    id="0586453e1bb39114ce2b6579b04bcb63"
    fields="category,opened_by,service_offering"
-   displayFields="short_description,category,opened_by,service_offering">
+   displayFields="number,short_description,category,opened_by,service_offering">
 </x-snc-related-records>`;
